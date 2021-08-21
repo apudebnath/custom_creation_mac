@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(219, 252, 241);
+}
+.hr-line hr{
+    width: 65%;
+}
+#hr-line hr{
+    width: 65%;
+    height: 3px;
+    /* color: rgb(24, 24, 24); */
+    background-color: rgb(24, 24, 24);
+}
