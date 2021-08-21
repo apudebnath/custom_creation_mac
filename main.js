@@ -23,7 +23,6 @@ function totalPrice(){
 function promoCodes(){
     if(promoDiscount.value.toLowerCase() == 'stevekaku'.toLowerCase()){
         const totalDiscount = Number((total.innerText * 20)/100);
-        console.log(totalDiscount);
         const totalPayAmount = total.innerText-totalDiscount;
         totalPay.innerText = Math.ceil(totalPayAmount);
     }
