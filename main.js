@@ -9,7 +9,7 @@ const total = document.getElementById('total-price');
 const bestPrice = document.getElementById('best-price');
 const totalPay = document.getElementById('total-pay');
 
-// ===== Price management =====
+// =====  Price management function  =====
 function totalPrice(){
     const bestPriceTotal = parseInt(bestPrice.innerText);
     const extraMemoryPrice = parseInt(extraMemory.innerText);
@@ -17,21 +17,20 @@ function totalPrice(){
     const deliveryChargeValue = parseInt(deliveryCharge.innerText);
     let grandTotal = bestPriceTotal + extraMemoryPrice + extraStoragePrice + deliveryChargeValue;
     total.innerText = grandTotal;
-    // return grandTotal;
 }
 
-// =====  Promo Code function  =====
+// ======  Promo Code function  ======
 function promoCodes(){
     if(promoDiscount.value.toLowerCase() == 'stevekaku'.toLowerCase()){
         const totalDiscount = Number((total.innerText * 20)/100);
         console.log(totalDiscount);
         const totalPayAmount = total.innerText-totalDiscount;
-        totalPay.innerText = totalPayAmount;
+        totalPay.innerText = Math.ceil(totalPayAmount);
     }
     promoDiscount.value = '';
 }
 
-// =====  Memory Event  =====
+// ======  Memory Event  ======
 const memoryDefault = document.getElementById('memory-default').addEventListener('click', function(){
  extraMemory.innerText = "0";
  totalPrice()
@@ -41,7 +40,7 @@ const memoryPrice = document.getElementById('memory-price').addEventListener('cl
  totalPrice()
 })
 
-// =====  Storage Event  =====
+// ======  Storage Event  ======
 const storageDefault = document.getElementById('default-storage').addEventListener('click', function(){
     extraStorage.innerText = '0';
     totalPrice()
@@ -56,7 +55,7 @@ const storage1Tb = document.getElementById('storage-1tb').addEventListener('clic
     totalPrice()
 })
 
-// =====  Delivery Charge  =====
+// ======  Delivery Charge  ======
 const freeDelivery = document.getElementById('free-delivery').addEventListener('click', function(){
     deliveryCharge.innerText = '0';
     totalPrice()
@@ -66,7 +65,7 @@ const DeliveryCost = document.getElementById('delivery-cost').addEventListener('
     totalPrice()
 })
 
-// =====  Coupon Event  =====
+// ======  Coupon Event  ======
 const promoCode = document.getElementById('Pormo-code').addEventListener('click', function(){
     promoCodes();
     
